@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 
 from app.config import settings
+
 from app.routers.ingest import router as ingest_router
+from app.routers.dashboard import router as dashboard_router
 
 app = FastAPI(
     title=settings.project_name,
@@ -9,6 +11,7 @@ app = FastAPI(
 )
 
 app.include_router(ingest_router)
+app.include_router(dashboard_router)
 
 
 @app.get("/")
