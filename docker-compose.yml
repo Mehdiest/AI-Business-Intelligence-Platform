@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    container_name: ai-bi-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ai_bi_platform
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
