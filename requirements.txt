@@ -25,3 +25,4 @@ pytest
 pytest-asyncio
 python-dotenv
 loguru
+openpyxl
