@@ -13,6 +13,12 @@ from .forecast import (
     ExecutiveForecastResponse,
 )
 
+from .ai import (
+    InsightResponse,
+    ExecutiveSummaryAIResponse,
+    SalesNarrativeResponse,
+)
+
 __all__ = [
     "KPIResponse",
     "RegionSalesResponse",
@@ -23,4 +29,7 @@ __all__ = [
     "RevenueForecastResponse",
     "GrowthForecastResponse",
     "ExecutiveForecastResponse",
+    "InsightResponse",
+    "ExecutiveSummaryAIResponse",
+    "SalesNarrativeResponse",
 ]
