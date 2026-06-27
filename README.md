@@ -4,13 +4,21 @@ Enterprise-oriented AI Business Intelligence platform.
 
 ## Current Features
 
--   FastAPI
--   Semantic Search
--   Knowledge Engine
--   FAISS Vector Store
--   Persistent Vector Storage
--   Automatic Index Restore
--   Retrieval Engine
+
+- Enterprise AI Business Intelligence Copilot
+- Semantic Knowledge Engine
+- Persistent FAISS Vector Database
+- Retrieval-Augmented Generation (RAG)
+- Intent Classification
+- Context Builder
+- Prompt Builder
+- Enterprise Response Pipeline
+- Citation Engine
+- Hallucination Guard
+- Confidence Engine
+- Tool Framework
+- Business Analytics
+- ETL Pipeline
 
 ## Architecture Phase 6
 
@@ -136,17 +144,69 @@ AI Business Intelligence Platform
 ## Tech Stack
 
 
--   Python
--   FastAPI
--   SQLAlchemy
--   SQLite
--   FAISS
--   Sentence Transformers
+---- Backend
+
+- Python 3.12
+- FastAPI
+- SQLAlchemy
+- Pydantic v2
+
+--- AI & Machine Learning
+
+- Sentence Transformers
+- FAISS
+- Semantic Search
+- Retrieval-Augmented Generation (RAG)
+- Enterprise AI Copilot
+- Prompt Engineering
+
+--- Data
+
+- SQLite
+- ETL Pipeline
+- Data Warehouse
+- Business Analytics
+
+--- Architecture
+
+- Layered Architecture
+- Service-Oriented Design
+- Enterprise Response Pipeline
+- Tool Framework
+- Semantic Knowledge Engine
+
+
+--- Development
+
+- Git
+- GitHub
+- Pytest
 
 ## Roadmap
 
--   Advanced Retrieval
--   RAG
--   LLM Integration
--   Docker
--   CI/CD
+--- ✅ Completed
+
+- ETL Pipeline
+- Analytics Engine
+- Semantic Knowledge Engine
+- Persistent FAISS Storage
+- Enterprise AI Copilot
+- Enterprise Response Pipeline
+- Tool Framework
+
+--- 🚧 In Progress
+
+- Multi-Agent Architecture
+- Planner Agent
+- Analytics Agent
+
+--- 📌 Planned
+
+- SQL Agent
+- Chart Generation Agent
+- Streaming Responses
+- Conversation Memory
+- Provider Switching
+- Docker
+- CI/CD
+- Monitoring & Observability
