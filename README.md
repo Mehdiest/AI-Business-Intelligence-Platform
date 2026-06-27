@@ -130,7 +130,11 @@ AI Business Intelligence Platform
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 
+```
+
 ## AI Copilot Internal Pipeline
+
+
 
 User Question
       │
@@ -167,9 +171,8 @@ Response Pipeline
       ▼
 Final AI Response
 
+``
 
-
-```
 
 ## Tech Stack
 
