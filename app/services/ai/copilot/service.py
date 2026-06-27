@@ -1,8 +1,5 @@
 """
-Enterprise AI Copilot service.
-
-Provides a single entry point for
-all AI assistant interactions.
+Enterprise Copilot Service.
 """
 
 from __future__ import annotations
@@ -19,31 +16,18 @@ from app.services.ai.copilot.models import (
 
 class CopilotService:
     """
-    High-level facade for the AI Copilot.
-
-    This class hides the internal
-    orchestration pipeline from the
-    rest of the application.
+    Enterprise AI Copilot.
     """
 
-    @staticmethod
+    def __init__(self):
+
+        self.engine = CopilotEngine()
+
     def ask(
+        self,
         request: CopilotRequest,
     ) -> CopilotResponse:
-        """
-        Process a user request.
 
-        Parameters
-        ----------
-        request:
-            User question.
-
-        Returns
-        -------
-        CopilotResponse
-        """
-
-        return (
-            CopilotEngine()
-            .process(request)
+        return self.engine.process(
+            request
         )
