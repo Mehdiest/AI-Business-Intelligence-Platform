@@ -17,6 +17,8 @@ Enterprise-oriented AI Business Intelligence platform.
 ``` text
 AI Business Intelligence Platform
 
+AI Business Intelligence Platform
+
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                               Client Layer                                  │
 ├──────────────────────────────────────────────────────────────────────────────┤
@@ -107,12 +109,12 @@ AI Business Intelligence Platform
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                             Analytics Layer                                │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│                                                                                  │
-│      KPI Engine                                                             │
-│      Aggregations                                                          │
-│      Business Metrics                                                     │
-│      Data Analysis                                                         │
-│                                                                                  │
+│                                                                              │
+│      KPI Engine                                                              │
+│      Aggregations                                                            │
+│      Business Metrics                                                        │
+│      Data Analysis                                                           │
+│                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
                                        │
                                        ▼
@@ -127,7 +129,6 @@ AI Business Intelligence Platform
 │      SQLite / PostgreSQL Ready                                               │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
-
 
 ## AI Copilot Internal Pipeline
 
