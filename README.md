@@ -12,33 +12,166 @@ Enterprise-oriented AI Business Intelligence platform.
 -   Automatic Index Restore
 -   Retrieval Engine
 
-## Architecture
+## Architecture Phase 6
 
 ``` text
-Client -> FastAPI -> Knowledge Engine -> Embeddings -> FAISS -> Persistent Storage
+AI Business Intelligence Platform
 
-                ┌──────────────────────┐
-                │      FastAPI API     │
-                └──────────┬───────────┘
-                           │
-              ┌────────────┴────────────┐
-              │                         │
-     Analytics Engine          AI Layer
-              │                         │
-              │                Knowledge Engine
-              │                         │
-              │                Embedding Service
-              │                         │
-              │                FAISS Vector Store
-              │                         │
-              └────────────┬────────────┘
-                           │
-                    SQLite Database
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                               Client Layer                                  │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│      REST API (FastAPI)                 Future Dashboard / SDK               │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                            Application Layer                                │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│                 API Routers                Dependency Injection               │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        Enterprise AI Copilot                                │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│   Copilot Service                                                            │
+│          │                                                                   │
+│          ▼                                                                   │
+│   Copilot Engine                                                             │
+│          │                                                                   │
+│          ├────────────── Intent Classification                               │
+│          │                                                                   │
+│          ├────────────── Context Builder                                     │
+│          │                                                                   │
+│          ├────────────── Prompt Builder                                      │
+│          │                                                                   │
+│          ├────────────── Tool Framework (Ready for Agents)                   │
+│          │                                                                   │
+│          ├────────────── LLM Provider                                        │
+│          │                                                                   │
+│          └────────────── Response Pipeline                                   │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                         Enterprise Response Layer                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│      Citation Engine                                                         │
+│      Response Formatter                                                      │
+│      Response Validator                                                      │
+│      Hallucination Guard                                                     │
+│      Confidence Engine                                                       │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                       Retrieval & Knowledge Layer                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│      Context Builder                                                         │
+│             │                                                                │
+│             ▼                                                                │
+│      FAISS Retriever                                                         │
+│             │                                                                │
+│             ▼                                                                │
+│      Persistent Vector Store                                                 │
+│             │                                                                │
+│             ▼                                                                │
+│      Embedding Service                                                       │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          Semantic Knowledge Engine                          │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│      Document Processing                                                     │
+│      Chunking                                                                │
+│      Embeddings                                                              │
+│      FAISS Index                                                             │
+│      Persistent Storage                                                      │
+│      Automatic Index Restore                                                 │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                             Analytics Layer                                │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│      KPI Engine                                                             │
+│      Aggregations                                                          │
+│      Business Metrics                                                     │
+│      Data Analysis                                                         │
+│                                                                                  │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                             Data Platform                                  │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│      ETL                                                                     │
+│      Data Cleaning                                                           │
+│      Data Warehouse                                                          │
+│      SQLAlchemy ORM                                                          │
+│      SQLite / PostgreSQL Ready                                               │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+## AI Copilot Internal Pipeline
+
+User Question
+      │
+      ▼
+Copilot Service
+      │
+      ▼
+Copilot Engine
+      │
+      ├──────────────► Intent Classification
+      │
+      ├──────────────► Context Builder
+      │                      │
+      │                      ▼
+      │              FAISS Semantic Search
+      │
+      ├──────────────► Prompt Builder
+      │
+      ├──────────────► Tool Framework
+      │                      │
+      │                (Future Agents)
+      │
+      ├──────────────► LLM Provider
+      │
+      ▼
+Response Pipeline
+      │
+      ├──────────────► Citation Engine
+      ├──────────────► Response Formatter
+      ├──────────────► Validator
+      ├──────────────► Hallucination Guard
+      └──────────────► Confidence Engine
+      │
+      ▼
+Final AI Response
+
 
 
 ```
 
 ## Tech Stack
+
 
 -   Python
 -   FastAPI
