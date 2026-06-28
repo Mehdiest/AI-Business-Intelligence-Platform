@@ -1,211 +1,210 @@
-# AI Business Intelligence Platform
+# Enterprise AI Business Intelligence Platform
 
-Enterprise-oriented AI Business Intelligence platform.
+> Production-grade Business Intelligence platform powered by a Multi-Agent AI Copilot, Semantic Retrieval (RAG), Star Schema Data Warehouse, and enterprise-ready infrastructure.
 
-## Current Features
+---
 
+## Overview
 
-- Enterprise AI Business Intelligence Copilot
-- Semantic Knowledge Engine
-- Persistent FAISS Vector Database
-- Retrieval-Augmented Generation (RAG)
-- Intent Classification
-- Context Builder
-- Prompt Builder
-- Enterprise Response Pipeline
-- Citation Engine
-- Hallucination Guard
-- Confidence Engine
-- Tool Framework
-- Business Analytics
-- ETL Pipeline
+The **Enterprise AI Business Intelligence Platform** is a full-stack, production-ready BI system designed for organizations that need intelligent, natural-language access to their data. At its core, a multi-agent AI Copilot interprets business questions, generates and validates SQL, retrieves semantic context via RAG, and delivers cited, confidence-scored answers — all backed by a PostgreSQL star schema warehouse and a Docker-based production runtime.
 
-## Architecture Phase 6
+---
 
-``` text
-AI Business Intelligence Platform
-
-
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                               Client Layer                                  │
-├──────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│      REST API (FastAPI)                 Future Dashboard / SDK               │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-                                       │
-                                       ▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                            Application Layer                                │
-├──────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│                 API Routers                Dependency Injection               │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-                                       │
-                                       ▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                        Enterprise AI Copilot                                │
-├──────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│   Copilot Service                                                            │
-│          │                                                                   │
-│          ▼                                                                   │
-│   Copilot Engine                                                             │
-│          │                                                                   │
-│          ├────────────── Intent Classification                               │
-│          │                                                                   │
-│          ├────────────── Context Builder                                     │
-│          │                                                                   │
-│          ├────────────── Prompt Builder                                      │
-│          │                                                                   │
-│          ├────────────── Tool Framework (Ready for Agents)                   │
-│          │                                                                   │
-│          ├────────────── LLM Provider                                        │
-│          │                                                                   │
-│          └────────────── Response Pipeline                                   │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-                                       │
-                                       ▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                         Enterprise Response Layer                           │
-├──────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│      Citation Engine                                                         │
-│      Response Formatter                                                      │
-│      Response Validator                                                      │
-│      Hallucination Guard                                                     │
-│      Confidence Engine                                                       │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-                                       │
-                                       ▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                       Retrieval & Knowledge Layer                           │
-├──────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│      Context Builder                                                         │
-│             │                                                                │
-│             ▼                                                                │
-│      FAISS Retriever                                                         │
-│             │                                                                │
-│             ▼                                                                │
-│      Persistent Vector Store                                                 │
-│             │                                                                │
-│             ▼                                                                │
-│      Embedding Service                                                       │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-                                       │
-                                       ▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                          Semantic Knowledge Engine                          │
-├──────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│      Document Processing                                                     │
-│      Chunking                                                                │
-│      Embeddings                                                              │
-│      FAISS Index                                                             │
-│      Persistent Storage                                                      │
-│      Automatic Index Restore                                                 │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-                                       │
-                                       ▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                             Analytics Layer                                │
-├──────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│      KPI Engine                                                              │
-│      Aggregations                                                            │
-│      Business Metrics                                                        │
-│      Data Analysis                                                           │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-                                       │
-                                       ▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                             Data Platform                                  │
-├──────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│      ETL                                                                     │
-│      Data Cleaning                                                           │
-│      Data Warehouse                                                          │
-│      SQLAlchemy ORM                                                          │
-│      SQLite / PostgreSQL Ready                                               │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
+## Architecture
 
 ```
+┌─────────────────────────────────────────────────────────┐
+│                      Client Layer                       │
+│           REST API (FastAPI)  │  Future Dashboard/SDK   │
+└─────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────┐
+│                   Application Layer                     │
+│        API Routers │ Middleware │ Dependency Injection  │
+└─────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────┐
+│               Enterprise AI Copilot                     │
+│   Planner Agent → SQL Agent → Response Agent            │
+│             Multi-Agent Orchestration                   │
+└─────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────┐
+│              Enterprise Response Layer                  │
+│  Formatter │ Citation Engine │ Confidence Engine        │
+│  Hallucination Guard │ Response Validator               │
+└─────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────┐
+│            Retrieval & Knowledge Layer                  │
+│   Context Builder → Semantic Retriever → FAISS DB       │
+│                    Embedding Service                    │
+└─────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────┐
+│                   Analytics Layer                       │
+│  KPI Engine │ Forecast Service │ Executive Summary      │
+│  Sales Narrative │ Business Metrics │ Aggregations      │
+└─────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────┐
+│                    Data Platform                        │
+│  ETL Pipeline │ Data Cleaning │ PostgreSQL Warehouse    │
+│               Star Schema │ SQLAlchemy ORM              │
+│                                                         │
+│  Fact:   fact_sales                                     │
+│  Dims:   dim_customer │ dim_product │ dim_region        │
+│          dim_channel  │ dim_date                        │
+└─────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────┐
+│              Enterprise Infrastructure                  │
+│  Docker │ Docker Compose │ Enterprise Logging           │
+│  Request ID │ Timing │ Exception Middleware             │
+│  Health │ Ready │ Live Endpoints │ Feature Flags        │
+└─────────────────────────────────────────────────────────┘
+```
 
+---
+
+## Features
+
+### Enterprise AI Copilot
+- Multi-agent pipeline: **Planner → SQL → Response**
+- Intent classification, context building, prompt engineering
+- SQL generation, validation, and execution
+- Semantic Knowledge Engine with persistent FAISS vector store
+- Retrieval-Augmented Generation (RAG) with citation engine
+- Hallucination guard and confidence scoring
+
+### Business Intelligence
+- Enterprise KPI engine with executive AI summaries
+- Sales narrative generator and forecasting engine
+- Customer, product, and regional analytics
+- Warehouse aggregations and dashboard APIs
+
+### Data Platform
+- ETL pipeline with automated data cleaning
+- PostgreSQL star schema warehouse
+- SQLAlchemy 2.0 ORM with Alembic migrations
+
+### Enterprise Infrastructure
+- Docker + Docker Compose production runtime
+- Structured enterprise logging
+- Health, ready, and live endpoints
+- Request ID, timing, and global exception middleware
+- Feature flags and environment separation
+
+---
 
 ## Tech Stack
 
+| Layer | Technologies |
+|---|---|
+| **Backend** | Python 3.12, FastAPI, SQLAlchemy, Pydantic v2, Alembic, Uvicorn |
+| **AI / ML** | Sentence Transformers, FAISS, RAG, Multi-Agent Architecture |
+| **Data** | PostgreSQL, Pandas, NumPy, Scikit-Learn |
+| **Infrastructure** | Docker, Docker Compose, Enterprise Logging, Feature Flags |
+| **Dev Tools** | Git, GitHub, Pytest, VS Code |
 
----- Backend
+---
 
-- Python 3.12
-- FastAPI
-- SQLAlchemy
-- Pydantic v2
+## Project Structure
 
---- AI & Machine Learning
+```
+Enterprise-AI-Business-Intelligence-Platform/
+├── app/
+│   ├── api/
+│   ├── config/
+│   ├── database/
+│   ├── middleware/
+│   ├── models/
+│   ├── routers/
+│   ├── schemas/
+│   ├── services/
+│   │   ├── analytics/
+│   │   ├── ai/
+│   │   │   ├── copilot/
+│   │   │   │   ├── agents/
+│   │   │   │   │   ├── planner/
+│   │   │   │   │   ├── sql/
+│   │   │   │   │   └── response/
+│   │   │   │   ├── middleware/
+│   │   │   │   ├── prompts/
+│   │   │   │   └── shared/
+│   │   │   ├── embeddings.py
+│   │   │   ├── insights.py
+│   │   │   └── semantic_search.py
+│   │   └── reporting/
+│   ├── warehouse/
+│   └── utils/
+├── docker/
+├── requirements/
+├── tests/
+└── alembic/
+```
 
-- Sentence Transformers
-- FAISS
-- Semantic Search
-- Retrieval-Augmented Generation (RAG)
-- Enterprise AI Copilot
-- Prompt Engineering
+---
 
---- Data
+## Getting Started
 
-- SQLite
-- ETL Pipeline
-- Data Warehouse
-- Business Analytics
+### Prerequisites
 
---- Architecture
+- Python 3.12+
+- Docker & Docker Compose
+- PostgreSQL 15+
+- OpenAI API key (or compatible LLM provider)
 
-- Layered Architecture
-- Service-Oriented Design
-- Enterprise Response Pipeline
-- Tool Framework
-- Semantic Knowledge Engine
+### Installation
 
+```bash
+# Clone the repository
+git clone https://github.com/Mehdiest/Enterprise-AI-Business-Intelligence-Platform.git
+cd Enterprise-AI-Business-Intelligence-Platform
 
---- Development
+# Copy environment configuration
+cp .env.example .env
+# Fill in your credentials in .env
 
-- Git
-- GitHub
-- Pytest
+# Start with Docker Compose
+docker compose up --build
+```
 
-## Roadmap
+### Environment Variables
 
---- ✅ Completed
+```env
+DATABASE_URL=postgresql://user:password@localhost:5432/bi_platform
+OPENAI_API_KEY=your_openai_api_key
+ENVIRONMENT=development
+```
 
-- ETL Pipeline
-- Analytics Engine
-- Semantic Knowledge Engine
-- Persistent FAISS Storage
-- Enterprise AI Copilot
-- Enterprise Response Pipeline
-- Tool Framework
+---
 
---- 🚧 In Progress
+## API Endpoints
 
-- Multi-Agent Architecture
-- Planner Agent
-- Analytics Agent
+| Endpoint | Description |
+|---|---|
+| `POST /api/v1/copilot/query` | Natural language query via AI Copilot |
+| `GET /api/v1/analytics/kpi` | Enterprise KPI metrics |
+| `GET /api/v1/analytics/forecast` | Sales forecasting |
+| `GET /api/v1/analytics/summary` | Executive AI summary |
+| `GET /health` | Health check |
+| `GET /ready` | Readiness probe |
+| `GET /live` | Liveness probe |
 
---- 📌 Planned
+---
 
-- SQL Agent
-- Chart Generation Agent
-- Streaming Responses
-- Conversation Memory
-- Provider Switching
-- Docker
-- CI/CD
-- Monitoring & Observability
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+> Built with production standards in mind — designed to scale from a single deployment to an enterprise-grade BI infrastructure.
