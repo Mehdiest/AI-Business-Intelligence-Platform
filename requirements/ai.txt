@@ -1,0 +1,15 @@
+langchain
+
+langchain-community
+
+langchain-openai
+
+openai
+
+tiktoken
+
+sentence-transformers
+
+transformers
+
+torch

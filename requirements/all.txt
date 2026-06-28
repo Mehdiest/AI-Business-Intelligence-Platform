@@ -1,0 +1,3 @@
+-r base.txt
+-r ai.txt
+-r dev.txt
